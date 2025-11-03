@@ -75,6 +75,51 @@ Entrenamiento_phones_gyroscopes_secuencial.ipynb
 Entrenamiento_Phones_Gyroscope.ipynb
 
 
+## 📊 Evaluación del Desempeño Computacional
+
+### Tabla 1. Resultados del módulo de Accelerometer
+
+| Núcleos | Tiempo Total (s) | Speedup | Eficiencia (%) |
+|:--------:|:----------------:|:--------:|:----------------:|
+| 1  | 132.32 | 1.00× | 100.00 |
+| 2  | 74.56  | 1.77× | 88.73 |
+| 4  | 44.14  | 3.00× | 74.94 |
+| 8  | 41.07  | 3.22× | 40.27 |
+| 12 | 41.50  | 3.19× | 26.57 |
+| 16 | 43.10  | 3.07× | 19.19 |
+| 20 | 42.97  | 3.08× | 15.40 |
+
+---
+
+### Tabla 2. Resultados del módulo de Gyroscope
+
+| Núcleos | Tiempo Total (s) | Speedup | Eficiencia (%) |
+|:--------:|:----------------:|:--------:|:----------------:|
+| 1  | 145.46 | 1.00× | 100.00 |
+| 2  | 80.99  | 1.80× | 89.80 |
+| 4  | 53.78  | 2.70× | 67.62 |
+| 8  | 47.94  | 3.03× | 37.93 |
+| 12 | 46.40  | 3.14× | 26.13 |
+| 16 | 43.95  | 3.31× | 20.69 |
+| 20 | 43.72  | 3.33× | 16.63 |
+
+---
+
+### Comparación General
+
+| Sensor | Speedup Máximo | Eficiencia Promedio (1–8 núcleos) | Reducción de Tiempo |
+|:--------|:----------------:|:---------------------------------:|:--------------------:|
+| **Accelerometer** | 3.22× (con 8 núcleos) | ~68 % | ↓ 69 % (132.3 s → 41.0 s) |
+| **Gyroscope**      | 3.33× (con 20 núcleos) | ~70 % | ↓ 70 % (145.5 s → 43.7 s) |
+
+📈 **Conclusión:**  
+El rendimiento mejora notablemente al aplicar paralelismo, alcanzando aceleraciones de hasta **3.3×** con 8–20 núcleos.  
+La eficiencia comienza a disminuir más allá de los 8 núcleos, lo que evidencia el impacto del *overhead* de coordinación entre procesos.  
+En general, el tiempo total de procesamiento se redujo alrededor del **70 %** sin afectar el desempeño del modelo.
+
+
+
+
 ![alt text](image.png) #descripciones de cada Notebook
 ##Conclusiones
 
