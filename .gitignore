@@ -1,1 +1,47 @@
+# Archivos de entorno y configuración
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+*.venv
+.env
+.venv
+venv/
+env/
+ENV/
+.venv/
+
+# Archivos temporales de Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Archivos de datos grandes o sensibles
 *.csv
+*.xlsx
+*.json
+*.zip
+*.tar
+*.gz
+*.pkl
+*.h5
+*.npy
+*.npz
+*.log
+*.tmp
+
+# Carpetas de resultados grandes
+resultados/*.tmp
+resultados/*.csv
+resultados/*.xlsx
+resultados/*.log
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de control de versiones o backups
+*.bak
+*.swp
+*.swo
