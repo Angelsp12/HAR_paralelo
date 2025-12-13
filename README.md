@@ -118,6 +118,19 @@ La eficiencia comienza a disminuir más allá de los 8 núcleos, lo que evidenci
 En general, el tiempo total de procesamiento se redujo alrededor del **70 %** sin afectar el desempeño del modelo.
 
 
+# Limitaciones
+
+Aunque el uso de cómputo paralelo permitió reducir significativamente los tiempos de ejecución, el sistema presenta algunas limitaciones inherentes al enfoque empleado. En primer lugar, no todo el pipeline de procesamiento es paralelizable; existen etapas que deben ejecutarse de forma secuencial, lo cual limita la aceleración total alcanzable. Este comportamiento es consistente con la **Ley de Amdahl**, que establece que la mejora en el rendimiento de un sistema paralelo está acotada por la fracción secuencial del proceso.
+
+Asimismo, al incrementar el número de núcleos, la eficiencia disminuye debido al *overhead* asociado a la creación, sincronización y comunicación entre procesos. Este efecto se vuelve más evidente a partir de cierto número de núcleos, donde el costo de coordinación supera los beneficios del paralelismo.
+
+Finalmente, la implementación actual se basa exclusivamente en paralelismo a nivel de CPU, sin aprovechar aceleradores de hardware como GPUs, lo cual podría limitar el desempeño en escenarios de mayor complejidad.
+
+#Trabajo Futuro
+
+Como trabajo futuro, se propone integrar el entrenamiento real de los modelos directamente en el módulo de benchmark, sustituyendo las simulaciones actuales por la ejecución completa del pipeline de Machine Learning. Además, sería relevante evaluar el uso de **aceleración por GPU** para comparar su desempeño frente al cómputo paralelo en CPU.
+
+Otra línea de mejora consiste en explorar frameworks de computación distribuida como **Apache Spark**, **Dask** o **Ray**, que permitirían escalar el procesamiento a múltiples nodos y analizar el impacto del paralelismo a nivel de clúster. Asimismo, se plantea comparar diferentes estrategias de paralelización y modelos de aprendizaje más complejos, como redes neuronales profundas, para evaluar su escalabilidad y eficiencia computacional.
 
 
 ![alt text](image.png) #descripciones de cada Notebook
